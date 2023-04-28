@@ -6,7 +6,10 @@ require("electron-reload")(__dirname + "/public/build/bundle.js", {
 });
 
 app.on("ready", () => {
-  const mainWindow = new BrowserWindow();
+  const mainWindow = new BrowserWindow({
+    webPreferences: {
+    },
+  });
   mainWindow.loadFile(path.join(__dirname, "public/index.html"));
   mainWindow.webContents.openDevTools();
 });
